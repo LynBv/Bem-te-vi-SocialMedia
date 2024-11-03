@@ -48,5 +48,5 @@ bin/
 !**/src/test/**/bin/
 
 ## h2banco ##
-.db
+*.db
 *Db.*
