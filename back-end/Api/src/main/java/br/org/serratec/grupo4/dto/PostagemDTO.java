@@ -1,5 +1,6 @@
 package br.org.serratec.grupo4.dto;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,6 +17,9 @@ public class PostagemDTO {
 
     @Schema(description = "Texto_do_Conteudo")
     private String conteudo;
+
+    @Schema(description = "Data_da_Postagem")
+    private LocalDate dataCriacao;
 
     private List<ComentarioDTO> comentarios;
 
@@ -35,6 +39,7 @@ public class PostagemDTO {
         this.conteudo = postagem.getConteudo();
         this.usuarioNome = postagem.getUsuario().getNome();
         this.comentarios = postagem.getComentarios().stream().map(ComentarioDTO::new).collect(Collectors.toList());
+        this.dataCriacao = postagem.getDataCriacao();
     }
 
     public Long getId() {
@@ -67,6 +72,14 @@ public class PostagemDTO {
 
     public void setUsuarioNome(String usuarioNome) {
         this.usuarioNome = usuarioNome;
+    }
+
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDate dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 
 }
