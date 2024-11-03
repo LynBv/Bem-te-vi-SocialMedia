@@ -13,18 +13,18 @@ html {
   background-color: white;
   border-radius: 10px;
   width: 80%;
-  padding: 5px;
+  padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  display: flex;
+}
+
+.conteudo{
+  width: 100%;
 }
 
 .post {
   color: var(--preto);
   font-size: 1.1rem;
-}
-
-.info {
-  display: flex;
-  align-items: center;
 }
 
 .avatar {
@@ -38,7 +38,8 @@ html {
 }
 
 .textoPost {
-  margin: 15px 30px 15px 30px;
+  margin: 10px;
   color: var(--preto);
-  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
