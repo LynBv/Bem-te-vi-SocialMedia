@@ -29,36 +29,6 @@ html {
     min-width: 500px;
     margin: auto;
 }
-.postCard {
-  margin: auto;
-  margin-top: 20px;
-  background-color: white;
-  border-radius: 10px;
-  width: 80%;
-  padding: 5px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-}
-
-.info {
-  display: flex;
-  align-items: center;
-}
-
-.avatar {
-  width: 50px;
-  margin: 10px;
-}
-
-.nomeUsuario {
-  margin: 10px;
-  color: var(--preto);
-}
-
-.textoPost {
-  margin: 15px 30px 15px 30px;
-  color: var(--preto);
-  padding: 10px;
-}
 
 .comentar {
   margin: auto;
@@ -103,16 +73,4 @@ html {
     width: 70%;
     margin: auto;
     margin-top: 15px;
-}
-.comentarioCard{
-    border-left: 4px solid var(--cinza-escuro);
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.textoComentario{
-    width: 85%;
-    margin: auto;
-    color: var(--preto);
-    padding: 10px;
-    padding-top: 0;
 }

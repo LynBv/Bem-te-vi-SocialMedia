@@ -1,0 +1,45 @@
+html {
+    --cinza: #f8f8f8;
+    --cinza-escuro: #d6d3d3;
+    --bege: #faebcd;
+    --amarelo: #f7c873;
+    --amarelo-escuro: #db9e2c;
+    --preto: #434343;
+}
+
+.comentarioCard {
+  border-left: 4px solid var(--cinza-escuro);
+  padding: 10px;
+  display: flex;
+}
+
+.conteudo{
+    width: 100%;
+}
+
+.avatar {
+  width: 50px;
+  margin: 10px;
+}
+
+.nomeUsuario {
+  margin: 10px;
+  color: var(--preto);
+}
+
+.textoComentario{
+    margin: auto;
+    margin: 10px;
+    color: var(--preto);
+}
+
+.detalhes{
+    display: flex;
+}
+
+.dataCriacao{
+    font-size: 0.8em;
+    margin: 10px;
+}
+
+
