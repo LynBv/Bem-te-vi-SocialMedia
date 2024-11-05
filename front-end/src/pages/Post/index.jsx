@@ -43,12 +43,22 @@ export default function Post() {
       });
   };
 
+  function apagarComentario(id) {
+    axios
+      .delete(`http://localhost:8080/comentarios/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
+      .then(() => {
+        console.log("Post Apagado!");
+        setComentarios(comentarios.filter((comentario) => comentario.id !== id));
+      })
+      .catch(() => console.log("Problemas na requisição"))
+  }
+
   useEffect(() => {
     pegarPostagem();
   }, []);
 
   const montarComentario = comentarios.map((comentario) => (
-    <Comentario key={comentario.id} comentario={comentario} />
+    <Comentario deletar={() => apagarComentario(comentario.id)} key={comentario.id} comentario={comentario} />
   ));
 
   return (

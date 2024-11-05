@@ -114,8 +114,8 @@ public class ComentarioService {
 		}
 
 		Long idtoken = jwtUtil.getId(bearerToken);
-		if (!id.equals(idtoken)) {
-			throw new ProprietarioIncompativelException("Voce so pode alterar seu proprio comentario");
+		if (!comentarioOpt.get().getUsuario().getId().equals(idtoken)) {
+			throw new ProprietarioIncompativelException("Voce so pode excluir seu proprio comentario");
 		}
 
 		comentarioRepository.deleteById(id);
