@@ -60,9 +60,9 @@ function Feed() {
     return (
         <div className={styles.feed}>
             <div className={styles.newPost}>
-                <textarea 
-                    placeholder="O que você está pensando?" 
-                    value={newPostContent} 
+                <textarea
+                    placeholder="O que você está pensando?"
+                    value={newPostContent}
                     onChange={(e) => setNewPostContent(e.target.value)}
                 />
                 <button onClick={createPost}>Postar</button>
@@ -70,10 +70,10 @@ function Feed() {
 
             {posts.map((post) => (
                 <Postagem 
-                    key={post.id} 
-                    data={post} 
-                    onUpdate={updatePost} 
-                    onDelete={deletePost} 
+                    key={post.id}
+                    data={post}
+                    onUpdate={updatePost}
+                    onDelete={deletePost}
                 />
             ))}
         </div>
