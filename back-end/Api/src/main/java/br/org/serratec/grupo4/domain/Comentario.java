@@ -45,6 +45,10 @@ public class Comentario {
 	@JoinColumn(name = "id_usuario", nullable = false)
 	private Usuario usuario; // usuário que fez a postagem
 
+	public Comentario() {
+
+	}
+
 	public Long getId() {
 		return id;
 	}
