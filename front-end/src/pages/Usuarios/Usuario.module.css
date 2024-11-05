@@ -1,0 +1,19 @@
+.cardUsuariosLi {
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  border-radius: 10px;
+  width: 60%;
+  margin: auto;
+  margin-top: 10px;
+}
+.li {
+  list-style: none;
+}
+.button {
+  margin: 17px 0 0 100px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.cardUsuarioInfo {
+  width: 100%;
+}

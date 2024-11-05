@@ -54,7 +54,13 @@ public class UsuarioService {
 
 		return usuarioDto;
 	}
-
+	
+	
+	public List<UsuarioDTO> buscarUsuario(String busca){
+		List<UsuarioDTO> usuarios = usuarioRepository.findUsuariosComLetra(busca).stream().map(UsuarioDTO::new).toList();
+		return usuarios;
+	}
+	
 	public Optional<UsuarioDTO> buscarPorNome(String nome) {
 		Optional<Usuario> usuario = Optional.ofNullable(usuarioRepository.findByNome(nome));
 		Optional<UsuarioDTO> usuariodto = Optional.ofNullable(new UsuarioDTO(usuario.get()));

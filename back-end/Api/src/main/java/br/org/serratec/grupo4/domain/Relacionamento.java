@@ -17,13 +17,29 @@ import lombok.Data;
 @Valid
 public class Relacionamento {
 
-    @EmbeddedId
-    private UsuarioRelacionamentoPK id;
+	@EmbeddedId
+	private UsuarioRelacionamentoPK id;
 
-    @NotNull
-    @CreationTimestamp
-    @Column(name = "data_inicio_seguimento", nullable = false, updatable = false)
-    @Schema(description = "Data_Seguimento")
-    private LocalDate dataInicioSeguimento;
+	@NotNull
+	@CreationTimestamp
+	@Column(name = "data_inicio_seguimento", nullable = false, updatable = false)
+	@Schema(description = "Data_Seguimento")
+	private LocalDate dataInicioSeguimento;
+
+	public UsuarioRelacionamentoPK getId() {
+		return id;
+	}
+
+	public void setId(UsuarioRelacionamentoPK id) {
+		this.id = id;
+	}
+
+	public LocalDate getDataInicioSeguimento() {
+		return dataInicioSeguimento;
+	}
+
+	public void setDataInicioSeguimento(LocalDate dataInicioSeguimento) {
+		this.dataInicioSeguimento = dataInicioSeguimento;
+	}
 
 }

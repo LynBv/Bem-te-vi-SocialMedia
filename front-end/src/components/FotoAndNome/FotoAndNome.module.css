@@ -1,0 +1,21 @@
+.userCard {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.nomeCompletoUsuario {
+  margin-top: 16px;
+  color: var(--preto);
+}
+.avatar {
+  width: 50px;
+  margin: 10px;
+}
+.info {
+  display: flex;
+  align-items: center;
+}
+.areaBotao {
+  margin-right: 5%;
+  display: flex;
+}

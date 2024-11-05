@@ -1,11 +1,11 @@
 html {
-    --cinza: #f8f8f8;
-    --cinza-escuro: #d6d3d3;
-    --bege: #faebcd;
-    --amarelo: #f7c873;
-    --amarelo-escuro: #db9e2c;
-    --preto: #434343;
-}  
+  --cinza: #f8f8f8;
+  --cinza-escuro: #d6d3d3;
+  --bege: #faebcd;
+  --amarelo: #f7c873;
+  --amarelo-escuro: #db9e2c;
+  --preto: #434343;
+}
 
 .postCard {
   margin: auto;
@@ -18,7 +18,7 @@ html {
   display: flex;
 }
 
-.conteudo{
+.conteudo {
   width: 100%;
 }
 
