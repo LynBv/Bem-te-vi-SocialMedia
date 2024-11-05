@@ -44,14 +44,38 @@ export default function Post() {
       });
   };
 
+  function editaComentario(idComentario, conteudo) {
+    axios
+      .put(
+        `http://localhost:8080/comentarios/${idComentario}`,
+        {
+          texto: `${conteudo}`,
+          idPostagem: `${id}`,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then(function (response) {
+        console.log(response);
+        const novosComentarios = comentarios.map((comentario) => comentario.id !== idComentario? comentario: response.data );
+        setComentarios(novosComentarios);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   function apagarComentario(id) {
     axios
-      .delete(`http://localhost:8080/comentarios/${id}`,{ headers: { Authorization: `Bearer ${token}` }})
+      .delete(`http://localhost:8080/comentarios/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then(() => {
         console.log("Post Apagado!");
-        setComentarios(comentarios.filter((comentario) => comentario.id !== id));
+        setComentarios(
+          comentarios.filter((comentario) => comentario.id !== id)
+        );
       })
-      .catch(() => console.log("Problemas na requisição"))
+      .catch(() => console.log("Problemas na requisição"));
   }
 
   useEffect(() => {
@@ -59,12 +83,16 @@ export default function Post() {
   }, []);
 
   const montarComentario = comentarios.map((comentario) => (
-    <Comentario deletar={() => apagarComentario(comentario.id)} key={comentario.id} comentario={comentario} />
+    <Comentario
+      editar={editaComentario}
+      deletar={() => apagarComentario(comentario.id)}
+      idComentario={comentario.id}
+      key={comentario.id}
+      comentario={comentario}
+    />
   ));
 
   return (
-    <main>
-      <Header />
       <div className={styles.post}>
         <div className={styles.mainArea}>
           <div className={styles.PostArea}>
@@ -74,6 +102,5 @@ export default function Post() {
           <div className={styles.comentariosArea}>{montarComentario}</div>
         </div>
       </div>
-    </main>
   );
 }

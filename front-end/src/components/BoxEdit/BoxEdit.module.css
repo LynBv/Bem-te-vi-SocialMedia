@@ -1,0 +1,38 @@
+.comentar {
+  margin: auto;
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  background-color: white;
+}
+
+.comentarInput {
+  border: none;
+  color: var(--preto);
+  width: 90%;
+  margin: 5px;
+  font-size: 1em;
+}
+
+.comentarInput:focus {
+  border: none;
+  outline: none;
+}
+
+.comentarButton {
+  border: none;
+  background-color: var(--amarelo);
+  color: var(--preto);
+  border-radius: 5px;
+  font-size: 1.5em;
+  padding: 5px;
+  display: flex;
+}
+
+.comentarButton:hover {
+  background-color: var(--amarelo-escuro);
+}
