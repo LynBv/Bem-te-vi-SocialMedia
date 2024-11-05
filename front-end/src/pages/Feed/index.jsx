@@ -37,7 +37,7 @@ function Feed() {
 
     const updatePost = async (id, updatedContent) => {
         try {
-            await axios.put(`URL_DA_API/${id}`, { content: updatedContent });
+            await axios.put(`http://localhost:8080/postagens/${id}`, { content: updatedContent });
             setPosts(posts.map(post => post.id === id ? { ...post, content: updatedContent } : post));
         } catch (error) {
             console.error("Erro ao atualizar post :(", error);
@@ -46,7 +46,7 @@ function Feed() {
 
     const deletePost = async (id) => {
         try {
-            await axios.delete(`URL_DA_API/${id}`);
+            await axios.delete(`http://localhost:8080/postagens/${id}`);
             setPosts(posts.filter(post => post.id !== id));
         } catch (error) {
             console.error("Erro ao deletar post :(", error);
