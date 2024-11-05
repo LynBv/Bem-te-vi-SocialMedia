@@ -3,6 +3,7 @@ package br.org.serratec.grupo4.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -90,15 +91,19 @@ public class RelacionamentoService {
 
 	}
 
-	public List<RelacionamentoDTO> ListarSeguindoUsuario(String bearerToken) {
+	public List<RelacionamentoDTO> ListarSeguindoUsuario(String bearerToken  , String busca) {
 		Long id = jwtUtil.getId(bearerToken);
 		Optional<Usuario> usuarioOPT = usuarioRepository.findById(id);
 		if (usuarioOPT.isEmpty()) {
 			throw new IdUsuarioInvalido("Seu Usuário não foi encontrado");
 		}
-		List<RelacionamentoDTO> seguindo = relacionamentoRepository.findSeguindoPorUsuarioId(id);
+		List<RelacionamentoDTO> seguindo = relacionamentoRepository.findUsuariosComLetraEStatus(id, busca);
 		return seguindo;
 	}
+	//////////////////
+
+
+	///////////////////////
 
 	public List<RelacionamentoDTO> ListarSeguidoresUsuario(String bearerToken) {
 

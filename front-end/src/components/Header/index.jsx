@@ -1,9 +1,12 @@
 import React from 'react'
+import * as styles from "../Header/Header.module.css";
 
 export default function Header() {
   return (
-    <div>
-        <Link to></Link>
+    <div className={styles.header}>
+      <div className={styles.navBar}>
+
+      </div>
     </div>
   )
 }

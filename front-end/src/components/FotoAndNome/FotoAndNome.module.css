@@ -16,6 +16,7 @@
   align-items: center;
 }
 .areaBotao {
+  margin-top: 18px;
   margin-right: 5%;
   display: flex;
 }
