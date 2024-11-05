@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Comentario from "../../components/Comentario";
 import axios from "axios";
 import Comentar from "../../components/Comentar";
+import Header from "../../components/Header";
 
 export default function Post() {
   const { id } = useParams();
@@ -36,7 +37,7 @@ export default function Post() {
       )
       .then(function (response) {
         console.log(response);
-        setComentarios([response.data, ...comentarios])
+        setComentarios([response.data, ...comentarios]);
       })
       .catch(function (error) {
         console.log(error);
@@ -52,14 +53,17 @@ export default function Post() {
   ));
 
   return (
-    <div className={styles.post}>
-      <div className={styles.mainArea}>
-        <div className={styles.PostArea}>
-          <Postagem postagem={postagem} />
-          <Comentar comentar={comentar} />
+    <main>
+      <Header />
+      <div className={styles.post}>
+        <div className={styles.mainArea}>
+          <div className={styles.PostArea}>
+            <Postagem postagem={postagem} />
+            <Comentar comentar={comentar} />
+          </div>
+          <div className={styles.comentariosArea}>{montarComentario}</div>
         </div>
-        <div className={styles.comentariosArea}>{montarComentario}</div>
       </div>
-    </div>
+    </main>
   );
 }

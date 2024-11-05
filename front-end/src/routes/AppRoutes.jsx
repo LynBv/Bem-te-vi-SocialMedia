@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Busca from "../pages/Usuarios";
+import Header from "../components/Header";
 
 export default function AppRoutes() {
   return (

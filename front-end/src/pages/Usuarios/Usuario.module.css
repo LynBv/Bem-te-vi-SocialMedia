@@ -1,13 +1,14 @@
 .cardUsuariosLi {
   display: flex;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
-  border-radius: 10px;
   width: 60%;
   margin: auto;
   margin-top: 10px;
 }
 .li {
   list-style: none;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  border-radius: 10px;
+  margin-top: 12px;
 }
 .button {
   margin: 17px 0 0 100px;

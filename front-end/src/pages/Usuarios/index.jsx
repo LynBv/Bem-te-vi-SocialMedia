@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import FotoAndNome from "../../components/FotoAndNome";
 import * as styles from "./Usuario.module.css";
-import Botao from "../../components/BotaoCondicionalBusca";
+import HeaderBusca from "../../components/HeaderBusca";
 
 export default function Busca() {
-  const [busca, setBusca] = useState("");
   const [usuarios, setUsuarios] = useState([]);
   const [nomeCompleto, setNomeCompleto] = useState("");
+  const [busca, setBusca] = useState("");
 
   const getUsuario = () => {
     axios
@@ -25,29 +24,21 @@ export default function Busca() {
     getUsuario();
   };
 
+  const handleInputChange = (e) => {
+    setBusca(e.target.value);
+  };
+
   const montandoNomeCompleto = (usuario) => {
     return setNomeCompleto(usuario.nome + " " + usuario.sobrenome);
   };
 
-  console.log({ nomeCompleto });
-
   return (
     <div>
-      <div className={styles.busca}>
-        <form onSubmit={handleSubmit}>
-          <label>Busca</label>
-          <input
-            type="text"
-            placeholder="Digite um nome..."
-            name="busca"
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
-          />
-          <div>
-            <Botao title={"Buscar"} />
-          </div>
-        </form>
-      </div>
+      <HeaderBusca
+        handleSubmit={handleSubmit}
+        handleInputChange={handleInputChange}
+        busca={busca}
+      />
       <div className={styles.cardUsuariosLi}>
         <div className={styles.cardUsuarioInfo}>
           {usuarios.map((usuario, index) => (
