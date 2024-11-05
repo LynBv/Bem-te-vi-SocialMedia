@@ -3,6 +3,7 @@ package br.org.serratec.grupo4.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,9 +46,9 @@ public class RelacionamentoController {
 			@ApiResponse(responseCode = "404", description = "Recurso não encontrado ⊙▂⊙"),
 			@ApiResponse(responseCode = "505", description = "Exceção interna da aplicação |˚–˚|"),
 	       })
-	@GetMapping("/sigo")
-	public ResponseEntity<List<RelacionamentoDTO>> Seguindo(@RequestHeader("Authorization") String token) {
-		List<RelacionamentoDTO> seguidores = relacionamentoService.ListarSeguindoUsuario(token);
+	@GetMapping("/sigo/{busca}")
+	public ResponseEntity<List<RelacionamentoDTO>> Seguindo(@RequestHeader("Authorization") String token, @PathVariable String busca) {
+		List<RelacionamentoDTO> seguidores = relacionamentoService.ListarSeguindoUsuario(token, busca);
 		return ResponseEntity.ok(seguidores);
 	}
 //////////////////////////////////////////////////////////////////////////////////
@@ -67,6 +68,7 @@ public class RelacionamentoController {
 	}
 //////////////////////////////////////////////////////////////////////////////////////////////
 
+///////////
 	@Operation(summary = "🙄 Deixar de Seguir", description = "Gente Chata!! Deixa de seguir mesmo :)")
 	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Operação efetuada com sucesso ｡◕‿◕｡"),
 			@ApiResponse(responseCode = "401", description = "Erro na autenticação (•ิ_•ิ)"),

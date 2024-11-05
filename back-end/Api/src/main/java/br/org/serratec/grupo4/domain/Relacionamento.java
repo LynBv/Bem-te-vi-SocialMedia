@@ -26,6 +26,10 @@ public class Relacionamento {
 	@Schema(description = "Data_Seguimento")
 	private LocalDate dataInicioSeguimento;
 
+	public Long getIdSeguido() {
+		return id.getSeguido().getId();
+	}
+
 	public UsuarioRelacionamentoPK getId() {
 		return id;
 	}
@@ -41,5 +45,4 @@ public class Relacionamento {
 	public void setDataInicioSeguimento(LocalDate dataInicioSeguimento) {
 		this.dataInicioSeguimento = dataInicioSeguimento;
 	}
-
 }

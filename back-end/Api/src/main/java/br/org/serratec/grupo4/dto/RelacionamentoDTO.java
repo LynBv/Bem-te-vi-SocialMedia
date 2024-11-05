@@ -4,10 +4,16 @@ import java.time.LocalDate;
 
 public interface RelacionamentoDTO {
 
-    public String getNomeSeguidor();
+//    public String getNomeSeguidor();
 
-    public String getNomeSeguido();
+	public String getNomeSeguido();
 
-    public LocalDate getDataInicioSeguimento();
+	public String getSobrenome();
+
+	public String getIdSeguido();
+
+	public LocalDate getDataInicioSeguimento();
+
+	public boolean getStatus();
 
 }
