@@ -1,11 +1,9 @@
-// src/pages/Feed/index.jsx
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Postagem from '../../components/Postagem';
 import styles from './Feed.module.css';
 
-function Feed() {
+export default function Feed() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [newPostContent, setNewPostContent] = useState('');
@@ -16,7 +14,7 @@ function Feed() {
 
     const fetchPosts = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/postagens/${id}`);
+            const response = await axios.get("http://localhost:8080/postagens");
             setPosts(response.data);
         } catch (error) {
             console.error("Erro ao buscar posts :(", error);
@@ -27,7 +25,7 @@ function Feed() {
 
     const createPost = async () => {
         try {
-            const response = await axios.post(`http://localhost:8080/postagens/${id}`, { content: newPostContent });
+            const response = await axios.post("http://localhost:8080/postagens", { content: newPostContent });
             setPosts([response.data, ...posts]);
             setNewPostContent('');
         } catch (error) {
@@ -69,7 +67,7 @@ function Feed() {
             </div>
 
             {posts.map((post) => (
-                <Postagem 
+                <Postagem
                     key={post.id}
                     data={post}
                     onUpdate={updatePost}
@@ -79,5 +77,3 @@ function Feed() {
         </div>
     );
 }
-
-export default Feed;
