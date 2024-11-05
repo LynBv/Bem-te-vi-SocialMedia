@@ -3,11 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Busca from "../pages/Usuarios";
-import Header from "../components/Header";
+import Feed from '../pages/Feed';
 
 export default function AppRoutes() {
   return (
     <>
+      <Routes>
+        <Route path="/" element={<Feed />} />
+      </Routes>
       <Routes>
         <Route path="/post/:id" element={<Post />}></Route>
       </Routes>

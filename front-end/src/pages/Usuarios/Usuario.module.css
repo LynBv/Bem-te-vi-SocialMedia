@@ -3,6 +3,7 @@
   width: 60%;
   margin: auto;
   margin-top: 10px;
+  justify-content: space-between;
 }
 .li {
   list-style: none;
@@ -17,4 +18,9 @@
 }
 .cardUsuarioInfo {
   width: 100%;
+}
+.areaBotao {
+  margin-top: 18px;
+  margin-right: 5%;
+  display: flex;
 }
