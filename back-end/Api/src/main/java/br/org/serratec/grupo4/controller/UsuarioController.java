@@ -155,6 +155,13 @@ public class UsuarioController {
 		}
 	}
 
+	@GetMapping("/busca/{busca}")
+	public ResponseEntity<List<UsuarioDTO>> lsitarBuscaUsuarioPaginado(@PathVariable String busca){
+		List<UsuarioDTO> usuarios = usuarioService.buscarUsuario(busca)		;
+		return ResponseEntity.ok(usuarios);
+	}
+	
+	
 	////////////////////////////////////////////////////////////////////////////////
 
 	@Operation(summary = "📚 Inserir Usuario", description = "Verifique se o id está correto :)")

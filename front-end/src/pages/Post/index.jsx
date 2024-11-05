@@ -23,7 +23,7 @@ export default function Post() {
   }, []);
 
   const montarComentario = postagem.comentarios?.map((comentario) => (
-      <Comentario key={comentario.id} comentario={comentario} />
+    <Comentario key={comentario.id} comentario={comentario} />
   ));
 
   return (
@@ -43,9 +43,7 @@ export default function Post() {
             <RiSendPlane2Fill />
           </button>
         </div>
-         <div className={styles.comentariosArea}>
-          {montarComentario}
-        </div>
+        <div className={styles.comentariosArea}>{montarComentario}</div>
       </div>
     </div>
   );
