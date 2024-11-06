@@ -15,14 +15,14 @@ const validationPost = yup.object().shape({
     .string()
     .required("O sobrenome dever ser preenchido")
     .max(60, "Tamanho máx. 60 caracteres"),
-    dataNascimento: yup
+  dataNascimento: yup
     .string()
     .required("A data de nascimento deve ser informada"),
   senha: yup
     .string()
     .required("A senha deve ser preenchida")
     .max(10, "Tamanho máx. 10 caracteres"),
-    confirmaSenha: yup
+  confirmaSenha: yup
     .string()
     .required("A senha deve ser preenchida")
     .max(10, "Tamanho máx. 10 caracteres"),
@@ -50,11 +50,12 @@ export default function Posts() {
       <main>
         <div className={styles.cardPost}>
           <div className={styles.cardBodyPost}>
-          <h3 className={styles.criarConta}>Criar sua conta</h3>
+            <h3 className={styles.criarConta}>Criar sua conta</h3>
             <form onSubmit={handleSubmit(cadastrar)}>
               <div className={styles.fields}>
                 <label htmlFor="nome">Nome</label>
-                <input className={styles.camposTexto}
+                <input
+                  className={styles.camposTexto}
                   type="text"
                   name="nome"
                   id="nome"
@@ -66,6 +67,7 @@ export default function Posts() {
               <div className={styles.fields}>
                 <label htmlFor="sobrenome">Sobrenome</label>
                 <input
+                  className={styles.camposTexto}
                   type="text"
                   name="sobrenome"
                   id="sobrenome"
@@ -79,12 +81,13 @@ export default function Posts() {
               <div className={styles.fields}>
                 <label htmlFor="dataNascimento">Data de Nascimento</label>
                 <input
+                  className={styles.camposTexto}
                   type="date"
                   name="dataNascimento"
                   id="dataNascimento"
                   {...register("dataNascimento")}
-                  />
-        
+                />
+
                 <p className={styles.errorMessage}>
                   {errors.dataNascimento?.message}
                 </p>
@@ -92,50 +95,46 @@ export default function Posts() {
 
               <div className={styles.fields}>
                 <label htmlFor="email">Email</label>
-                  <input
+                <input
+                  className={styles.camposTexto}
                   type="text"
                   name="email"
                   id="email"
                   {...register("email")}
+                />
 
-                  />
-  
-                <p className={styles.errorMessage}>
-                  {errors.email?.message}
-                </p>
+                <p className={styles.errorMessage}>{errors.email?.message}</p>
               </div>
 
               <div className={styles.fields}>
                 <label htmlFor="senha">Senha</label>
-              <input
+                <input
+                  className={styles.camposTexto}
                   type="password"
                   name="senha"
                   id="senha"
                   {...register("senha")}
+                />
 
-                  />
-
-                <p className={styles.errorMessage}>
-                  {errors.senha?.message}
-                </p>
+                <p className={styles.errorMessage}>{errors.senha?.message}</p>
               </div>
 
               <div className={styles.fields}>
                 <label htmlFor="confirmaSenha">ConfirmarSenha</label>
-                  <input
+                <input
+                  className={styles.camposTexto}
                   type="password"
                   name="confirmaSenha"
                   id="confirmaSenha"
                   {...register("confirmaSenha")}
-                  />
+                />
 
                 <p className={styles.errorMessage}>
                   {errors.confirmaSenha?.message}
                 </p>
               </div>
-
-              <div>
-                <button className={styles.buttonCadastrar} type="submit">Cadastrar</button>
+              <div className={styles.areaButton}>
+                <button className={styles.buttonCadastrar}>Cadastrar</button>
               </div>
             </form>
           </div>
