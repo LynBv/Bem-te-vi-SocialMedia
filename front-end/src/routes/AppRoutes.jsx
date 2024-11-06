@@ -10,11 +10,11 @@ export default function AppRoutes() {
   return (
     <>
       <Routes>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/cadastro" element={<Cadastro />}></Route>
+        <Route path="/busca" element={<Busca />}></Route>
         <Route path="/" element={<Feed />} />
         <Route path="/post/:id" element={<Post />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/busca" element={<Busca />}></Route>
-        <Route path="/cadastro" element={<Cadastro />}></Route>
       </Routes>
     </>
   );

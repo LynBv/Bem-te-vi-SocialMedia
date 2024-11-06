@@ -3,6 +3,8 @@ import axios from "axios";
 import Postagem from "../../components/Postagem";
 import styles from "./Feed.module.css";
 
+import LayoutPrincipal from "../../components/LayoutPrincipal";
+
 export default function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -62,24 +64,26 @@ export default function Feed() {
   };
 
   return (
-    <div className={styles.feed}>
-      <div className={styles.newPost}>
-        <form onSubmit={handlePost}>
-          <textarea
-            placeholder="O que você está pensando?"
-            value={conteudo}
-            onChange={(e) => setConteudo(e.target.value)}
-          />
-          <button>Postar</button>
-        </form>
+    <LayoutPrincipal>
+      <div className={styles.feed}>
+        <div className={styles.newPost}>
+          <form onSubmit={handlePost}>
+            <textarea
+              placeholder="O que você está pensando?"
+              value={conteudo}
+              onChange={(e) => setConteudo(e.target.value)}
+            />
+            <button>Postar</button>
+          </form>
+        </div>
+        {posts && (
+          <>
+            {posts.map((postagem) => (
+              <Postagem key={postagem.id} postagem={postagem} />
+            ))}
+          </>
+        )}
       </div>
-      {posts && (
-        <>
-          {posts.map((postagem) => (
-            <Postagem key={postagem.id} postagem={postagem} />
-          ))}
-        </>
-      )}
-    </div>
+    </LayoutPrincipal>
   );
 }
