@@ -3,7 +3,7 @@ import * as style from "./Botao.module.css";
 import axios from "axios";
 
 export default function BotaoCondicionalBusca({ status, idSeguido, token }) {
-  const [estadoRelacionamento, setEstadoRelacionamento] = useState(status);
+  const [estado, setEstado] = useState(status);
   const seguir = () => {
     axios
       .post(`http://localhost:8080/relacionamentos/${idSeguido}`, null, {
@@ -11,7 +11,8 @@ export default function BotaoCondicionalBusca({ status, idSeguido, token }) {
       })
       .then(() => {
         console.log("Você começou a seguir o usuário.");
-        setEstadoRelacionamento(true); 
+        setEstado(true);
+        console.log(estado);
       })
       .catch((error) => console.error("Erro ao seguir:", error));
   };
@@ -23,7 +24,7 @@ export default function BotaoCondicionalBusca({ status, idSeguido, token }) {
       })
       .then(() => {
         console.log("Você deixou de seguir o usuário.");
-        setEstadoRelacionamento(false); 
+        setEstado(false);
       })
       .catch((error) => console.error("Erro ao deixar de seguir:", error));
   };

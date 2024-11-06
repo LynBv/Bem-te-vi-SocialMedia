@@ -7,6 +7,14 @@ import Busca from "../../pages/Usuarios/index";
 import Logo from "../../assets/logo-bem-te-vi.svg";
 
 export default function Header() {
+  function limparTokenCache() {
+    const chaveToken = Object.keys(localStorage).find((key) =>
+      localStorage.getItem(key).startsWith("Bearer ")
+    );
+
+    localStorage.removeItem(chaveToken);
+  }
+
   return (
     <div className={styles.header}>
       <img src={Logo} alt="Logo" className={styles.logo} />
@@ -30,6 +38,7 @@ export default function Header() {
             to={"/login"}
             element={<Login />}
             className={styles.opcaoNavBar}
+            onClick={limparTokenCache}
           >
             Sair
           </Link>

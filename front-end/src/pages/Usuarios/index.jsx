@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import FotoAndNome from "../../components/FotoAndNome";
 import * as styles from "./Usuario.module.css";
-import HeaderBusca from "../../components/HeaderBusca";
 import BotaoCondicionalBusca from "../../components/BotaoCondicionalBusca";
 import LayoutBusca from "../../components/LayoutBusca";
 

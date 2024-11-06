@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Postagem from '../../components/Postagem';
-import styles from './Feed.module.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Postagem from "../../components/Postagem";
+import styles from "./Feed.module.css";
+import { useNavigate } from "react-router-dom";
 import LayoutPrincipal from "../../components/LayoutPrincipal";
-
-export default function Feed() {
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [conteudo, setConteudo] = useState("");
-    const navigate = useNavigate();
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [conteudo, setConteudo] = useState("");
+  const navigate = useNavigate();
 
   const token = localStorage.getItem("token").substring(7);
   useEffect(() => {
@@ -67,24 +62,10 @@ export default function Feed() {
     }
   };
 
-    const goToCommentsPage = (postId) => {
-        navigate(`/post/${postId}`);
-    };
+  const goToCommentsPage = (postId) => {
+    navigate(`/post/${postId}`);
+  };
 
-    return (
-        <div className={styles.feed}>
-            <div className={styles.newPost}>
-                <form onSubmit={handlePost}>
-
-                <textarea
-                    placeholder="O que você está pensando?"
-                    value={conteudo}
-                    onChange={(e) => setConteudo(e.target.value)}
-                />
-                <button>Postar</button>
-
-                </form>
-            </div>
   return (
     <LayoutPrincipal>
       <div className={styles.feed}>
@@ -101,11 +82,12 @@ export default function Feed() {
         {posts && (
           <>
             {posts.map((postagem) => (
-
-
-                <div key={postagem.id} onClick={() => goToCommentsPage(postagem.id)}>
-                    <Postagem postagem={postagem} />
-                </div>
+              <div
+                key={postagem.id}
+                onClick={() => goToCommentsPage(postagem.id)}
+              >
+                <Postagem postagem={postagem} />
+              </div>
             ))}
           </>
         )}
