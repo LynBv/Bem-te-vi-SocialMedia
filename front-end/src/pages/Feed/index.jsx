@@ -7,9 +7,10 @@ export default function Feed() {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [conteudo, setConteudo] = useState("");
-    let token =
-    "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlbHluLnZpcmdpbmlvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNjUzNDU0LCJpZCI6Mn0.i4-L_Bx-8w3pBA7Nf5uUsp2c-1jGYL34UfkoGDeGcTIE9QpVCCDVidL5ohFvCEvB";
+    // let token =
+    // "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlbHluLnZpcmdpbmlvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNjUzNDU0LCJpZCI6Mn0.i4-L_Bx-8w3pBA7Nf5uUsp2c-1jGYL34UfkoGDeGcTIE9QpVCCDVidL5ohFvCEvB";
 
+    const token = localStorage.getItem("token").substring(7);
     useEffect(() => {
         fetchPosts();
     }, []);

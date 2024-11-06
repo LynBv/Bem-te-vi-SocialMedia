@@ -11,9 +11,11 @@ export default function Post() {
   const { id } = useParams();
   const [postagem, setPostagem] = useState({ usuarioNome: "", conteudo: "" });
   const [comentarios, setComentarios] = useState([]);
-  let token =
-    "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlbHluLnZpcmdpbmlvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNjUzNDU0LCJpZCI6Mn0.i4-L_Bx-8w3pBA7Nf5uUsp2c-1jGYL34UfkoGDeGcTIE9QpVCCDVidL5ohFvCEvB";
+  // let token =
+  //   "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlbHluLnZpcmdpbmlvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNjUzNDU0LCJpZCI6Mn0.i4-L_Bx-8w3pBA7Nf5uUsp2c-1jGYL34UfkoGDeGcTIE9QpVCCDVidL5ohFvCEvB";
 
+  const token = localStorage.getItem("token").substring(7);
+  
   const pegarPostagem = () => {
     axios
       .get(`http://localhost:8080/postagens/${id}`)
@@ -96,7 +98,7 @@ export default function Post() {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <div className={styles.post}>
         <div className={styles.mainArea}>
           <div className={styles.PostArea}>
