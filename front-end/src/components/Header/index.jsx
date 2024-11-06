@@ -21,11 +21,11 @@ export default function Header() {
       <div className={styles.navBar}>
         <div className={styles.navLinks}>
           <Link
-            to={"/post/:id"}
+            to={"/"}
             element={<Feed />}
             className={styles.opcaoNavBar}
           >
-            Postagens
+            Feed
           </Link>
           <Link
             to={"/busca"}
