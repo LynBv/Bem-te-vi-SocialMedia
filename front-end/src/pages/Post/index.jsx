@@ -11,10 +11,22 @@ export default function Post() {
   const { id } = useParams();
   const [postagem, setPostagem] = useState({ usuarioNome: "", conteudo: "" });
   const [comentarios, setComentarios] = useState([]);
+  const [idUsuario, setIdUsuario] = useState({id: null});
   // let token =
   //   "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlbHluLnZpcmdpbmlvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNjUzNDU0LCJpZCI6Mn0.i4-L_Bx-8w3pBA7Nf5uUsp2c-1jGYL34UfkoGDeGcTIE9QpVCCDVidL5ohFvCEvB";
 
   const token = localStorage.getItem("token").substring(7);
+
+  const pegarID = () => {
+    axios
+      .get(`http://localhost:8080/usuarios/retornoID`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setIdUsuario(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const pegarPostagem = () => {
     axios
@@ -23,8 +35,7 @@ export default function Post() {
         setPostagem(response.data);
         setComentarios(response.data.comentarios);
       })
-      .catch((error) => console.log(error))
-      .finally(() => console.log("acabou o get"));
+      .catch((error) => console.log(error));
   };
 
   const comentar = (conteudo) => {
@@ -84,6 +95,7 @@ export default function Post() {
 
   useEffect(() => {
     pegarPostagem();
+    pegarID();
   }, []);
 
   const montarComentario = comentarios
@@ -99,6 +111,8 @@ export default function Post() {
         idComentario={comentario.id}
         key={comentario.id}
         comentario={comentario}
+        idProprietario={comentario.idProprietario}
+        idUsuario={idUsuario}
       />
     ));
 

@@ -10,9 +10,11 @@ export default function Comentario({
   deletar,
   editar,
   idComentario,
+  idProprietario,
+  idUsuario,
 }) {
   const [editando, setEditando] = useState(false);
-  function editarEConcluir(idComentario, conteudo){ 
+  function editarEConcluir(idComentario, conteudo) {
     editar(idComentario, conteudo);
     setEditando(false);
   }
@@ -26,21 +28,29 @@ export default function Comentario({
         <h1 className={styles.nomeUsuario}>{comentario?.usuarioNome}</h1>
         <div>
           {editando ? (
-            <BoxEdit idComentario={idComentario} editar={editarEConcluir} texto={comentario?.texto}/>
+            <BoxEdit
+              idComentario={idComentario}
+              editar={editarEConcluir}
+              texto={comentario?.texto}
+            />
           ) : (
             <p className={styles.textoComentario}> {comentario?.texto}</p>
           )}
         </div>
         <div className={styles.detalhes}>
-          <button onClick={deletar} className={styles.deleteButton}>
-            <MdDeleteForever />
-          </button>
-          <button
-            onClick={() => setEditando(!editando)}
-            className={styles.editButton}
-          >
-            <FaEdit />
-          </button>
+          {idProprietario === idUsuario.id && (
+            <div>
+              <button onClick={deletar} className={styles.deleteButton}>
+                <MdDeleteForever />
+              </button>
+              <button
+                onClick={() => setEditando(!editando)}
+                className={styles.editButton}
+              >
+                <FaEdit />
+              </button>
+            </div>
+          )}
           <p className={styles.dataCriacao}>{comentario?.dataCriacao}</p>
         </div>
         <div></div>

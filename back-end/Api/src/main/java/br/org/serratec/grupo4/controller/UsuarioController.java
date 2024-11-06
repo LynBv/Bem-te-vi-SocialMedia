@@ -27,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.org.serratec.grupo4.domain.Foto;
 import br.org.serratec.grupo4.domain.Usuario;
+import br.org.serratec.grupo4.dto.IdDTO;
 import br.org.serratec.grupo4.dto.UsuarioDTO;
 import br.org.serratec.grupo4.dto.UsuarioInserirDTO;
 import br.org.serratec.grupo4.exception.IdUsuarioInvalido;
@@ -119,6 +120,22 @@ public class UsuarioController {
 			return ResponseEntity.notFound().build();
 		}
 
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////
+
+	@Operation(summary = "🔎 Busca o usuario pelo Id", description = "Verifique se o id está correto :)")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Operação efetuada com sucesso ｡◕‿◕｡"),
+			@ApiResponse(responseCode = "401", description = "Erro na autenticação (•ิ_•ิ)"),
+			@ApiResponse(responseCode = "404", description = "Recurso não encontrado ⊙▂⊙"),
+			@ApiResponse(responseCode = "505", description = "Exceção interna da aplicação |˚–˚|") })
+
+	@GetMapping("/retornoID")
+	public ResponseEntity<IdDTO> idUsario(@RequestHeader("Authorization") String token) {
+		IdDTO id = usuarioService.pegarId(token);
+
+		return ResponseEntity.ok(id);
+	
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////
