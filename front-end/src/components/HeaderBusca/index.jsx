@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import * as styles from "../HeaderBusca/HeaderBusca.module.css";
 import Login from "../../pages/Login";
 import Feed from "../../pages/Feed";
-import Logo from "../../assets/logo-bem-te-vi.png";
+import Logo from "../../assets/logo-bem-te-vi.svg";
 
 export default function HeaderBusca({
   handleSubmit,
