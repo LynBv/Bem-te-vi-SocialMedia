@@ -42,6 +42,7 @@ html {
   margin: auto;
   margin: 10px;
   color: var(--preto);
+  font-size: 1.1em;
 }
 
 .detalhes {
@@ -52,6 +53,7 @@ html {
 .dataCriacao {
   font-size: 0.9em;
   margin: 10px;
+  color: var(--cinza-chumbo);
 }
 
 .deleteButton {
