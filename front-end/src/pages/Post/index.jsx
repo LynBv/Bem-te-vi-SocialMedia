@@ -56,7 +56,9 @@ export default function Post() {
       )
       .then(function (response) {
         console.log(response);
-        const novosComentarios = comentarios.map((comentario) => comentario.id !== idComentario? comentario: response.data );
+        const novosComentarios = comentarios.map((comentario) =>
+          comentario.id !== idComentario ? comentario : response.data
+        );
         setComentarios(novosComentarios);
       })
       .catch(function (error) {
@@ -93,6 +95,8 @@ export default function Post() {
   ));
 
   return (
+    <div>
+      <Header/>
       <div className={styles.post}>
         <div className={styles.mainArea}>
           <div className={styles.PostArea}>
@@ -102,5 +106,6 @@ export default function Post() {
           <div className={styles.comentariosArea}>{montarComentario}</div>
         </div>
       </div>
+    </div>
   );
 }

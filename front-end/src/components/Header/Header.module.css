@@ -17,7 +17,6 @@ html {
   --mostarda-escura: #b3831c;
   --cinza-chumbo: #767676;
 }
-
 .header {
   background-color: var(--amarelo);
   height: 100px;
@@ -26,40 +25,39 @@ html {
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
-.busca {
+.navBar {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.navBar :last-child {
+  margin-right: 9%;
+}
+.logo {
+  margin-top: 29px;
+  width: 110px;
+}
+
+.navLinks {
   display: flex;
   justify-content: center;
-  align-items: center;
-  display: flex;
-  width: 100%;
-  max-width: 600px;
+  gap: 20px;
+  flex-grow: 1;
 }
 
-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid var(--cinza-escuro);
-  border-radius: 5px 0 0 5px;
-  font-size: 16px;
+.opcaoNavBar {
+  text-decoration: none;
+  color: var(--preto);
+  font-size: 1.3em;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-input::placeholder {
-  color: var(--cinza-chumbo);
-}
-
-.buttonBusca {
-  padding: 10px 20px;
-  border: none;
-  background-color: var(--amarelo-escuro);
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 0 5px 5px 0;
-  transition: background-color 0.3s;
-}
-
-.buttonBusca:hover {
-  background-color: var(--marrom-claro);
+.opcaoNavBar:hover {
+  color: var(--azul-claro);
+  border-bottom: 2px solid var(--azul-claro);
+  text-decoration: none;
 }
