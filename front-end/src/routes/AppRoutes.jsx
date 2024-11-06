@@ -12,8 +12,8 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/cadastro" element={<Cadastro />}></Route>
-        <Route path="/busca" element={<Busca />}></Route>
         <Route path="/" element={<Feed />} />
+        <Route path="/busca" element={<Busca />}></Route>
         <Route path="/post/:id" element={<Post />}></Route>
       </Routes>
     </>
