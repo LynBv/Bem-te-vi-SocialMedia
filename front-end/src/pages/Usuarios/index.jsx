@@ -9,8 +9,9 @@ export default function Busca() {
   const [busca, setBusca] = useState("");
   const [seguindo, setSeguindo] = useState([]);
 
-  const token =
-    "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJtaWx0b24ubWVuZGVzQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNzEzMTcyLCJpZCI6OH0.x0IIc2GhHSLLw6jJr2iBuVT2jrPjN40gc5HJZr0GTxM3q0Pv_Js8eQf0-2w7ytCt"; // Coloque seu token aqui
+  // const token =
+  //   "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJtaWx0b24ubWVuZGVzQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNzEzMTcyLCJpZCI6OH0.x0IIc2GhHSLLw6jJr2iBuVT2jrPjN40gc5HJZr0GTxM3q0Pv_Js8eQf0-2w7ytCt"; // Coloque seu token aqui
+  const token = localStorage.getItem("token").substring(7);
 
   const getSeguindo = () => {
     axios
@@ -51,7 +52,11 @@ export default function Busca() {
                 status={usuario.status}
               />{" "}
               <div className={styles.areaBotao}>
-                <BotaoCondicionalBusca status={usuario.status} idSeguido={usuario.idSeguido} token={token} />
+                <BotaoCondicionalBusca
+                  status={usuario.status}
+                  idSeguido={usuario.idSeguido}
+                  token={token}
+                />
               </div>
             </li>
           ))}
