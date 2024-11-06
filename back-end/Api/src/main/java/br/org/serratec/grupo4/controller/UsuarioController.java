@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -170,11 +171,11 @@ public class UsuarioController {
 			@ApiResponse(responseCode = "404", description = "Recurso não encontrado ⊙▂⊙"),
 			@ApiResponse(responseCode = "505", description = "Exceção interna da aplicação |˚–˚|") })
 
-	@PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-	public ResponseEntity<UsuarioDTO> inserir(@RequestPart(value = "file", required = false) MultipartFile file,
-			@RequestPart UsuarioInserirDTO usuario) throws IOException {
+	@PostMapping()
+	public ResponseEntity<UsuarioDTO> inserir(
+			@RequestBody UsuarioInserirDTO usuario) throws IOException {
 		try {
-			return ResponseEntity.ok(usuarioService.inserir(usuario, file));
+			return ResponseEntity.ok(usuarioService.inserir(usuario));
 		} catch (IOException e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}

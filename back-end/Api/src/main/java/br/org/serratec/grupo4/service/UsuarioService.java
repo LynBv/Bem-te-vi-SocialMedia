@@ -8,8 +8,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -73,7 +71,7 @@ public class UsuarioService {
 		return usuariodto;
 	}
 
-	public UsuarioDTO inserir(UsuarioInserirDTO usuarioInserirDTO, MultipartFile file)
+	public UsuarioDTO inserir(UsuarioInserirDTO usuarioInserirDTO)
 			throws IOException, SenhaException, EmailException {
 		if (!usuarioInserirDTO.getSenha().equals(usuarioInserirDTO.getConfirmaSenha())) {
 			throw new SenhaException("Senha e Confirma Senha não são iguais");
@@ -92,15 +90,9 @@ public class UsuarioService {
 		usuario.setUrl(usuarioInserirDTO.getUrl());
 		UsuarioDTO usuarioDTO = new UsuarioDTO(usuario);
 
-		usuarioRepository.save(usuario);
-		if (file == null) {
+	
 			return usuarioDTO;
-		} else {
-			fotoService.inserir(usuario, file);
-
-		}
-
-		return adicionarImagemUri(usuario);
+		
 	}
 
 	public UsuarioDTO atualizar(UsuarioInserirDTO usuarioInserirDTO, Long id, String bearerToken, MultipartFile file) {
