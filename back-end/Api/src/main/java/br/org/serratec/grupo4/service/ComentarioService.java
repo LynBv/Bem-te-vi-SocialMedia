@@ -67,7 +67,8 @@ public class ComentarioService {
 		Postagem postagem = postagemOPT.get();
 		Long idUsuarioPostagem = postagem.getUsuario().getId();
 		Usuario usuario = usuarioOPT.get();
-		if (!usuario.getSeguidos().stream().anyMatch(r -> r.getId().getSeguido().getId().equals(idUsuarioPostagem))) {
+		
+		if (!usuario.getId().equals(idUsuarioPostagem) && !usuario.getSeguidos().stream().anyMatch(r -> r.getId().getSeguido().getId().equals(idUsuarioPostagem))) {
 			throw new RelacionamentoException("Você so pode comentar em postagens de usuarios que você segue");
 		}
 
