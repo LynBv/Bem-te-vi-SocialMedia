@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Postagem from "../../components/Postagem";
 import styles from "./Feed.module.css";
+
 import LayoutPrincipal from "../../components/LayoutPrincipal";
 
 export default function Feed() {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Feed from "../../pages/Feed";
 import Login from "../../pages/Login";
 import Busca from "../../pages/Usuarios/index";
-import Logo from "../../assets/logo-bem-te-vi.png";
+import Logo from "../../assets/logo-bem-te-vi.svg";
 
 export default function Header() {
   return (
@@ -20,18 +20,18 @@ export default function Header() {
             Postagens
           </Link>
           <Link
-            to={"/login"}
-            element={<Login />}
-            className={styles.opcaoNavBar}
-          >
-            Login
-          </Link>
-          <Link
             to={"/busca"}
             element={<Busca />}
             className={styles.opcaoNavBar}
           >
             Buscar
+          </Link>
+          <Link
+            to={"/login"}
+            element={<Login />}
+            className={styles.opcaoNavBar}
+          >
+            Sair
           </Link>
         </div>
       </div>
