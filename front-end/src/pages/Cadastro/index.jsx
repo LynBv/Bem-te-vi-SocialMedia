@@ -41,7 +41,7 @@ export default function Posts() {
     axios
       .post("http://localhost:8080/usuarios", data)
       .then(() => {
-        console.log("deu tudo certo"), navigate("/");
+        console.log("deu tudo certo"), navigate("/login");
       })
       .catch(() => console.log("erro"));
   };
