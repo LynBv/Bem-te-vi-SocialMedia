@@ -1,0 +1,17 @@
+html{
+    --cinza: #F8F8F8;
+    --bege: #FAEBCD;
+    --amarelo: #F7C873;
+    --preto: #434343;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: var(--cinza);
+}

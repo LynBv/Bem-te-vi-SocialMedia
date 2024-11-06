@@ -1,0 +1,38 @@
+html {
+  --cinza: #f8f8f8;
+  --cinza-escuro: #d6d3d3;
+  --cinza-claro: #eaeaea;
+  --cinza-médio: #c0c0c0;
+
+  --bege: #faebcd;
+  --bege-claro: #fdf5e6;
+  --bege-escuro: #d3c2a2;
+
+  --amarelo: #f7c873;
+  --amarelo-escuro: #e0a854;
+  --amarelo-claro: #ffdbac;
+
+  --vermelho: #e57373;
+  --vermelho-escuro: #c65353;
+  --vermelho-claro: #f28c8c;
+
+  --verde: #a8d5a2;
+  --verde-escuro: #6ba870;
+  --verde-claro: #ccebd4;
+}
+
+.button {
+  /* margin: 17px 0 0 100px; */
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: var(--amarelo);
+  border: 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+.deixarDeSeguir {
+  background-color: var(--vermelho);
+}
+.seguir {
+  background-color: var(--verde);
+}

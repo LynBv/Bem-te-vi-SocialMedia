@@ -11,6 +11,7 @@ import br.org.serratec.grupo4.domain.Postagem;
 import br.org.serratec.grupo4.domain.Usuario;
 import br.org.serratec.grupo4.dto.PostagemDTO;
 import br.org.serratec.grupo4.dto.PostagemInserirDTO;
+import br.org.serratec.grupo4.dto.PostagemIntefaceDto;
 import br.org.serratec.grupo4.exception.DadoNaoEncontradoException;
 import br.org.serratec.grupo4.exception.IdUsuarioInvalido;
 import br.org.serratec.grupo4.exception.ProprietarioIncompativelException;
@@ -46,6 +47,20 @@ public class PostagemService {
 		return postagemsDTO;
 	}
 
+	//funcao para buscar todas postagens de quem eu sigo
+
+	public List<PostagemIntefaceDto> listarPostagenSeguidos(String bearerToken) throws IdUsuarioInvalido {
+
+		Long id = jwtUtil.getId(bearerToken);
+		Optional<Usuario> usuarioOPT = usuarioRepository.findById(id);
+		if (usuarioOPT.isEmpty()) {
+			throw new IdUsuarioInvalido("Seu Usuário não foi encontrado");	
+		}
+
+		List<PostagemIntefaceDto> postagens = postagemRepository.ListarPostagensSeguidos(id);
+		return postagens;
+	} 
+
 	public Optional<PostagemDTO> buscarPorId(Long id) {
 		Optional<Postagem> postagem = postagemRepository.findById(id);
 		Optional<PostagemDTO> postagemDto = Optional.ofNullable(new PostagemDTO(postagem.get()));
@@ -73,6 +88,7 @@ public class PostagemService {
 		postagemDTO.setId(postagem.getId());
 		postagemDTO.setConteudo(postagem.getConteudo());
 		postagemDTO.setComentarios(null);
+		postagemDTO.setDataCriacao(postagem.getDataCriacao());
 
 		return postagemDTO;
 	}

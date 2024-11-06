@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -26,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.org.serratec.grupo4.domain.Foto;
 import br.org.serratec.grupo4.domain.Usuario;
+import br.org.serratec.grupo4.dto.IdDTO;
 import br.org.serratec.grupo4.dto.UsuarioDTO;
 import br.org.serratec.grupo4.dto.UsuarioInserirDTO;
 import br.org.serratec.grupo4.exception.IdUsuarioInvalido;
@@ -120,6 +122,22 @@ public class UsuarioController {
 
 	}
 
+	//////////////////////////////////////////////////////////////////////////////////
+
+	@Operation(summary = "🔎 Busca o usuario pelo Id", description = "Verifique se o id está correto :)")
+	@ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Operação efetuada com sucesso ｡◕‿◕｡"),
+			@ApiResponse(responseCode = "401", description = "Erro na autenticação (•ิ_•ิ)"),
+			@ApiResponse(responseCode = "404", description = "Recurso não encontrado ⊙▂⊙"),
+			@ApiResponse(responseCode = "505", description = "Exceção interna da aplicação |˚–˚|") })
+
+	@GetMapping("/retornoID")
+	public ResponseEntity<IdDTO> idUsario(@RequestHeader("Authorization") String token) {
+		IdDTO id = usuarioService.pegarId(token);
+
+		return ResponseEntity.ok(id);
+	
+	}
+
 	////////////////////////////////////////////////////////////////////////////////////
 
 	@Operation(summary = "📧 Busca o usuario pelo Email", description = "Verifique se o id está correto :)")
@@ -155,6 +173,13 @@ public class UsuarioController {
 		}
 	}
 
+	@GetMapping("/busca/{busca}")
+	public ResponseEntity<List<UsuarioDTO>> lsitarBuscaUsuarioPaginado(@PathVariable String busca){
+		List<UsuarioDTO> usuarios = usuarioService.buscarUsuario(busca)		;
+		return ResponseEntity.ok(usuarios);
+	}
+	
+	
 	////////////////////////////////////////////////////////////////////////////////
 
 	@Operation(summary = "📚 Inserir Usuario", description = "Verifique se o id está correto :)")
@@ -163,11 +188,11 @@ public class UsuarioController {
 			@ApiResponse(responseCode = "404", description = "Recurso não encontrado ⊙▂⊙"),
 			@ApiResponse(responseCode = "505", description = "Exceção interna da aplicação |˚–˚|") })
 
-	@PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-	public ResponseEntity<UsuarioDTO> inserir(@RequestPart(value = "file", required = false) MultipartFile file,
-			@RequestPart UsuarioInserirDTO usuario) throws IOException {
+	@PostMapping()
+	public ResponseEntity<UsuarioDTO> inserir(
+			@RequestBody UsuarioInserirDTO usuario) throws IOException {
 		try {
-			return ResponseEntity.ok(usuarioService.inserir(usuario, file));
+			return ResponseEntity.ok(usuarioService.inserir(usuario));
 		} catch (IOException e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}

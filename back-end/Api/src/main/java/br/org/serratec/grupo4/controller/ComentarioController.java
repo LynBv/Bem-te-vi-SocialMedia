@@ -132,7 +132,7 @@ public class ComentarioController {
 	public ResponseEntity<ComentarioDTO> atualizar(@PathVariable Long id,
 			@Valid @RequestBody ComentarioInserirDTO comentario, @RequestHeader("Authorization") String bearerToken) {
 		try {
-			return ResponseEntity.ok(comentarioService.inserir(comentario, bearerToken));
+			return ResponseEntity.ok(comentarioService.atualizar(id ,comentario, bearerToken));
 
 		} catch (DadoNaoEncontradoException e) {
 			return ResponseEntity.notFound().build();

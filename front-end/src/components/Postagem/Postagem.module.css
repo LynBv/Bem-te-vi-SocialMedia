@@ -1,0 +1,72 @@
+html {
+  --cinza: #f8f8f8;
+  --cinza-escuro: #d6d3d3;
+  --bege: #faebcd;
+  --amarelo: #f7c873;
+  --amarelo-escuro: #db9e2c;
+  --preto: #434343;
+
+  --marrom-claro: #b2957a;
+  --amarelo-oliva: #c4a35a;
+  --cinza-azulado: #c1c7d0;
+  --dourado-palido: #e8c37d;
+  --terracota: #c66b3d;
+  --verde-musgo-claro: #b6bfa1;
+  --marrom-escuro: #6a4b3c;
+  --caramelo: #d3a87c;
+  --mostarda-escura: #b3831c;
+  --cinza-chumbo: #767676;
+  
+}
+
+.postCard {
+  margin: auto;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  width: 1000px;
+  height: auto;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.conteudo {
+  width: 100%;
+}
+
+.post {
+  color: var(--preto);
+  font-size: 1.1rem;
+}
+
+.avatar {
+  width: 50px;
+  margin: 10px;
+}
+
+.info{
+  display: flex;
+  align-items: baseline;
+}
+
+.dataCriacao{
+  margin-left: 5px;
+  font-size: 0.9em;
+  color: var(--cinza-chumbo);
+}
+.nomeUsuario {
+  margin: 10px;
+  color: var(--preto);
+}
+
+.textoPost {
+  margin: 10px;
+  color: var(--preto);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}

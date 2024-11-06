@@ -1,6 +1,6 @@
 INSERT INTO USUARIO (nome, sobrenome, email, senha, data_nascimento) VALUES 
 ('Rayssa', 'Vieira', 'rayssa.vieira@example.com', 'Senhazinha123', '1990-01-15'),
-('Elyn', 'Virginio', 'elyn.virginio@example.com', 'Laela456', '1985-06-23'),
+('Elyn', 'Virginio', 'elyn.virginio@example.com', 'Laela456', '1999-05-27'),
 ('Rhayssa', 'Frias', 'rhayssa.frias@example.com', 'senhaSegura789', '1992-09-30'),
 ('Rodrigo', 'Carvalho', 'rodrigo.carvalho@example.com', 'LordMechamadeLord147', '1995-04-12'),
 ('Patrick', 'Paiva', 'patrick.paiva@example.com', 'SenhordoDiscord258', '1991-07-18'),
@@ -14,7 +14,7 @@ INSERT INTO USUARIO (nome, sobrenome, email, senha, data_nascimento) VALUES
 
 INSERT INTO USUARIO (nome, sobrenome, email, senha, data_nascimento) VALUES 
 ('Rayssa', 'Vieira', 'rayssa.vieira@example.com', '$2a$12$QcWot7hiwMyY3RHFqbeJhelMsmX2/afmOQFRatecxVXu.Pg3tUkSC', '1990-01-15'),
-('Elyn', 'Virginio', 'elyn.virginio@example.com', '$2a$12$ndf1IhPckAlMLBMvJvL8P.nK4QSbRJIhQ0K.dRTa9EENZPf1Or0E.', '1985-06-23'),
+('Elyn', 'Virginio', 'elyn.virginio@example.com', '$2a$12$ndf1IhPckAlMLBMvJvL8P.nK4QSbRJIhQ0K.dRTa9EENZPf1Or0E.', '1999-05-27'),
 ('Rhayssa', 'Frias', 'rhayssa.frias@example.com', '$2a$12$dFiWZDQJbtPwMI/jie33pOkplOg0aYTfiSN3UeR4nQvtPFvLKGN4q', '1992-09-30'),
 ('Rodrigo', 'Carvalho', 'rodrigo.carvalho@example.com', '$2a$12$K.N1tpaWqzi2xcB4GYGypuPtWpoi6nEjzirbXeDWRJYCoVh/okDz.', '1995-04-12'),
 ('Patrick', 'Paiva', 'patrick.paiva@example.com', '$2a$12$NDACtWikt1eUgVW6IEsLc.yY44ype1wVpr9wADTwuKW8JsG8uwmd2', '1991-07-18'),

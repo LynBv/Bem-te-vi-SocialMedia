@@ -8,12 +8,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.org.serratec.grupo4.domain.Usuario;
+import br.org.serratec.grupo4.dto.IdDTO;
 import br.org.serratec.grupo4.dto.UsuarioDTO;
 import br.org.serratec.grupo4.dto.UsuarioInserirDTO;
 import br.org.serratec.grupo4.exception.EmailException;
@@ -54,7 +53,13 @@ public class UsuarioService {
 
 		return usuarioDto;
 	}
-
+	
+	
+	public List<UsuarioDTO> buscarUsuario(String busca){
+		List<UsuarioDTO> usuarios = usuarioRepository.findUsuariosComLetra(busca).stream().map(UsuarioDTO::new).toList();
+		return usuarios;
+	}
+	
 	public Optional<UsuarioDTO> buscarPorNome(String nome) {
 		Optional<Usuario> usuario = Optional.ofNullable(usuarioRepository.findByNome(nome));
 		Optional<UsuarioDTO> usuariodto = Optional.ofNullable(new UsuarioDTO(usuario.get()));
@@ -67,7 +72,7 @@ public class UsuarioService {
 		return usuariodto;
 	}
 
-	public UsuarioDTO inserir(UsuarioInserirDTO usuarioInserirDTO, MultipartFile file)
+	public UsuarioDTO inserir(UsuarioInserirDTO usuarioInserirDTO)
 			throws IOException, SenhaException, EmailException {
 		if (!usuarioInserirDTO.getSenha().equals(usuarioInserirDTO.getConfirmaSenha())) {
 			throw new SenhaException("Senha e Confirma Senha não são iguais");
@@ -86,15 +91,9 @@ public class UsuarioService {
 		usuario.setUrl(usuarioInserirDTO.getUrl());
 		UsuarioDTO usuarioDTO = new UsuarioDTO(usuario);
 
-		usuarioRepository.save(usuario);
-		if (file == null) {
+	
 			return usuarioDTO;
-		} else {
-			fotoService.inserir(usuario, file);
-
-		}
-
-		return adicionarImagemUri(usuario);
+		
 	}
 
 	public UsuarioDTO atualizar(UsuarioInserirDTO usuarioInserirDTO, Long id, String bearerToken, MultipartFile file) {
@@ -171,6 +170,14 @@ public class UsuarioService {
 		usuarioRepository.save(usuario);
 
 		return dto;
+	}
+
+	public IdDTO pegarId(String bearerToken) {
+		Long id = jwtUtil.getId(bearerToken);
+		IdDTO idDTO = new IdDTO();
+		idDTO.setId(id);
+
+		return idDTO;
 	}
 
 }

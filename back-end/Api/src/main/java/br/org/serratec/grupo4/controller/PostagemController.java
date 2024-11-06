@@ -24,6 +24,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import br.org.serratec.grupo4.domain.Postagem;
 import br.org.serratec.grupo4.dto.PostagemDTO;
 import br.org.serratec.grupo4.dto.PostagemInserirDTO;
+import br.org.serratec.grupo4.dto.PostagemIntefaceDto;
 import br.org.serratec.grupo4.repository.PostagemRepository;
 import br.org.serratec.grupo4.service.PostagemService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -36,7 +37,7 @@ import jakarta.validation.Valid;
 public class PostagemController {
 
     @Autowired
-	private PostagemService postagemService;
+    private PostagemService postagemService;
 
     @Autowired
     private PostagemRepository postagemRepository;
@@ -93,6 +94,25 @@ public class PostagemController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    /////////////////////////////////////////////////////////  
+    
+    @Operation(summary = "🔎 Busca a postagem de todo seus seguidores", description = "busca todas postagens de pessoas que você segue")
+    @ApiResponses(
+            value = {
+                @ApiResponse(responseCode = "200", description = "Operação efetuada com sucesso ｡◕‿◕｡"),
+                @ApiResponse(responseCode = "401", description = "Erro na autenticação (•ิ_•ิ)"),
+                @ApiResponse(responseCode = "404", description = "Recurso não encontrado ⊙▂⊙"),
+                @ApiResponse(responseCode = "505", description = "Exceção interna da aplicação |˚–˚|")
+            }
+    )
+    @GetMapping("/feed")
+    public ResponseEntity<List<PostagemIntefaceDto>> ListarPostagensSeguidos(@RequestHeader("Authorization") String bearerToken) {
+
+        List<PostagemIntefaceDto> postagens = postagemService.listarPostagenSeguidos(bearerToken);
+
+        return ResponseEntity.ok(postagens);
     }
 
     //////////////////////////////////////////////////////	
@@ -154,6 +174,6 @@ public class PostagemController {
     public ResponseEntity<String> deletar(@RequestHeader("Authorization") String token, @PathVariable Long id) {
         postagemService.deletar(token, id);
         String mensagem = "Postagem deletada com sucesso!";
-		return ResponseEntity.ok(mensagem);
-	}
+        return ResponseEntity.ok(mensagem);
+    }
 }
