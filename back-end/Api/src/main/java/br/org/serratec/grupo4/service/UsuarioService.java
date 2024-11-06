@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.org.serratec.grupo4.domain.Usuario;
+import br.org.serratec.grupo4.dto.IdDTO;
 import br.org.serratec.grupo4.dto.UsuarioDTO;
 import br.org.serratec.grupo4.dto.UsuarioInserirDTO;
 import br.org.serratec.grupo4.exception.EmailException;
@@ -169,6 +170,14 @@ public class UsuarioService {
 		usuarioRepository.save(usuario);
 
 		return dto;
+	}
+
+	public IdDTO pegarId(String bearerToken) {
+		Long id = jwtUtil.getId(bearerToken);
+		IdDTO idDTO = new IdDTO();
+		idDTO.setId(id);
+
+		return idDTO;
 	}
 
 }
