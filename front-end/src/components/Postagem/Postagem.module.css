@@ -24,11 +24,15 @@ html {
   margin-top: 20px;
   background-color: white;
   border-radius: 10px;
-  width: 80%;
+  width: 1000px;
+  height: auto;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .conteudo {
   width: 100%;
