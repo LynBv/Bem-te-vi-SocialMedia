@@ -1,0 +1,44 @@
+.cardPost{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.cardBodyPost{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #b6bfa1;
+  border: 2px solid #e8c37d;
+  border-radius: 3px;
+}
+
+.camposTexto{
+
+  width: 100%;
+}
+
+.criarConta{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  height: 20px;
+}
+
+.buttonCadastrar {
+  background-color:#db9e2c;
+  color:#434343;
+  border: 2px solid, #434343;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer; 
+}
