@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Comentario from "../../components/Comentario";
 import axios from "axios";
 import Comentar from "../../components/Comentar";
-import Header from "../../components/Header";
+import LayoutPrincipal from "../../components/LayoutPrincipal";
 
 export default function Post() {
   const { id } = useParams();
@@ -15,7 +15,7 @@ export default function Post() {
   //   "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlbHluLnZpcmdpbmlvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNjUzNDU0LCJpZCI6Mn0.i4-L_Bx-8w3pBA7Nf5uUsp2c-1jGYL34UfkoGDeGcTIE9QpVCCDVidL5ohFvCEvB";
 
   const token = localStorage.getItem("token").substring(7);
-  
+
   const pegarPostagem = () => {
     axios
       .get(`http://localhost:8080/postagens/${id}`)
@@ -86,28 +86,35 @@ export default function Post() {
     pegarPostagem();
   }, []);
 
-  const montarComentario = comentarios.map((comentario) => (
-    <Comentario
-      editar={editaComentario}
-      deletar={() => apagarComentario(comentario.id)}
-      idComentario={comentario.id}
-      key={comentario.id}
-      comentario={comentario}
-    />
-  ));
+  const montarComentario = comentarios
+    .sort(function (a, b) {
+      a = a.id;
+      b = b.id;
+      return b - a;
+    })
+    .map((comentario) => (
+      <Comentario
+        editar={editaComentario}
+        deletar={() => apagarComentario(comentario.id)}
+        idComentario={comentario.id}
+        key={comentario.id}
+        comentario={comentario}
+      />
+    ));
 
   return (
-    <div>
-      <Header />
-      <div className={styles.post}>
-        <div className={styles.mainArea}>
-          <div className={styles.PostArea}>
-            <Postagem postagem={postagem} />
-            <Comentar comentar={comentar} />
+    <LayoutPrincipal>
+      <div className={styles.pageContainer}>
+        <div className={styles.post}>
+          <div className={styles.mainArea}>
+            <div className={styles.PostArea}>
+              <Postagem postagem={postagem} />
+              <Comentar comentar={comentar} />
+            </div>
+            <div className={styles.comentariosArea}>{montarComentario}</div>
           </div>
-          <div className={styles.comentariosArea}>{montarComentario}</div>
         </div>
       </div>
-    </div>
+    </LayoutPrincipal>
   );
 }

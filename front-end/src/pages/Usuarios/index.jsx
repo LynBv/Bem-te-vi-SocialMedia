@@ -4,6 +4,7 @@ import FotoAndNome from "../../components/FotoAndNome";
 import * as styles from "./Usuario.module.css";
 import HeaderBusca from "../../components/HeaderBusca";
 import BotaoCondicionalBusca from "../../components/BotaoCondicionalBusca";
+import LayoutBusca from "../../components/LayoutBusca";
 
 export default function Busca() {
   const [busca, setBusca] = useState("");
@@ -36,12 +37,11 @@ export default function Busca() {
   };
 
   return (
-    <div>
-      <HeaderBusca
-        handleSubmit={handleSubmit}
-        handleInputChange={handleInputChange}
-        busca={busca}
-      />
+    <LayoutBusca
+      handleSubmit={handleSubmit}
+      handleInputChange={handleInputChange}
+      busca={busca}
+    >
       <div className={styles.cardUsuariosLi}>
         <div className={styles.cardUsuarioInfo}>
           {seguindo.map((usuario, index) => (
@@ -62,6 +62,6 @@ export default function Busca() {
           ))}
         </div>
       </div>
-    </div>
+    </LayoutBusca>
   );
 }

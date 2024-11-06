@@ -8,7 +8,10 @@ export default function Postagem({ postagem }) {
         <img src={Avatar} alt="Foto de perfil" className={styles.avatar} />
       </div>
       <div className={styles.conteudo}>
+        <div className={styles.info}>
         <h1 className={styles.nomeUsuario}>{postagem.usuarioNome}</h1>
+        <p className={styles.dataCriacao}>{postagem.dataCriacao}</p>
+        </div>
         <p className={styles.textoPost}>{postagem.conteudo}</p>
       </div>
     </div>
