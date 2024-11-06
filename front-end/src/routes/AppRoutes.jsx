@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Post from "../pages/Post";
 import Login from "../pages/Login";
 import Busca from "../pages/Usuarios";
-import Feed from '../pages/Feed';
+import Feed from "../pages/Feed";
 import Cadastro from "../pages/Cadastro";
 
 export default function AppRoutes() {
