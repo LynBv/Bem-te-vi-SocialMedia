@@ -11,5 +11,4 @@ public class IdDTO {
     public void setId(Long id) {
         this.id = id;
     }
-
 }
