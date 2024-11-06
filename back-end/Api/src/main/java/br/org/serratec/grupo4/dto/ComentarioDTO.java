@@ -23,6 +23,9 @@ public class ComentarioDTO {
     @Schema(description = "Data_Criacao do Comentario")
     private LocalDate dataCriacao;
 
+    @Schema(description = "Id do proprietario do Comentario")
+    private Long idProprietario;
+
 
     public ComentarioDTO() {
     }
@@ -39,6 +42,7 @@ public class ComentarioDTO {
         this.dataCriacao = comentario.getDataCriacao();
         this.usuarioNome = comentario.getUsuario().getNome();
         this.idPostagem = comentario.getPostagem().getId();
+        this.idProprietario = comentario.getUsuario().getId();
     }
 
     public Long getId() {
@@ -75,6 +79,10 @@ public class ComentarioDTO {
 
     public Long getIdPostagem() {
         return idPostagem;
+    }
+
+    public Long getIdProprietario() {
+        return idProprietario;
     }
 
 }

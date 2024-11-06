@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Postagem from "../../components/Postagem";
 import styles from "./Feed.module.css";
-
+import { useNavigate } from "react-router-dom";
 import LayoutPrincipal from "../../components/LayoutPrincipal";
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [conteudo, setConteudo] = useState("");
-  // let token =
-  // "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlbHluLnZpcmdpbmlvQGV4YW1wbGUuY29tIiwiZXhwIjoxNzMxNjUzNDU0LCJpZCI6Mn0.i4-L_Bx-8w3pBA7Nf5uUsp2c-1jGYL34UfkoGDeGcTIE9QpVCCDVidL5ohFvCEvB";
+  const navigate = useNavigate();
 
   const token = localStorage.getItem("token").substring(7);
   useEffect(() => {
@@ -63,6 +62,10 @@ export default function Feed() {
     }
   };
 
+  const goToCommentsPage = (postId) => {
+    navigate(`/post/${postId}`);
+  };
+
   return (
     <LayoutPrincipal>
       <div className={styles.feed}>
@@ -79,7 +82,12 @@ export default function Feed() {
         {posts && (
           <>
             {posts.map((postagem) => (
-              <Postagem key={postagem.id} postagem={postagem} />
+              <div
+                key={postagem.id}
+                onClick={() => goToCommentsPage(postagem.id)}
+              >
+                <Postagem postagem={postagem} />
+              </div>
             ))}
           </>
         )}
