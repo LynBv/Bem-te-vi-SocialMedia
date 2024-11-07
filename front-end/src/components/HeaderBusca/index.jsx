@@ -13,8 +13,8 @@ export default function HeaderBusca({
     <div className={styles.header}>
       <img src={Logo} alt="Logo" className={styles.logo} />
       <div className={styles.navBar}>
-        <Link to={"/post/:id"} element={<Feed />} className={styles.opcaoNavBar}>
-          Postagens
+        <Link to={"/"} element={<Feed />} className={styles.opcaoNavBar}>
+          Feed
         </Link>
         <Link to={"/login"} element={<Login />} className={styles.opcaoNavBar}>
           Login
