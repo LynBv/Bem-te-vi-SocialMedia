@@ -1,27 +1,24 @@
-
 # Bem-te-vi Social Media
 
-Bem-te-vi Social Media é uma aplicação web desenvolvida como parte da Residencia em TIC/SOFTWARE no Serratec.
+Bem-te-vi Social Media é uma aplicação web desenvolvida como parte da Residência em TIC/Software no Serratec. A plataforma permite aos usuários compartilhar postagens, seguir uns aos outros, comentar e interagir com uma interface de rede social moderna e intuitiva.
 
 ## Funcionalidades
 
- Autenticação de usuário por Bearer Token
- Sistema de login e logout
- Cadastro de novos usuários
- Busca de usuários onde você pode seguir ou deixar de seguir alguém
- Feed com as postagens dos usuários e uma área para você postar
- Página de postagem onde você pode ver seus comentários e também comentar
- Seus comentários podem ser editados ou apagados, mas apenas os seus, graças a uma proteção tanto no front-end quanto no back-end!
-  
+- **Autenticação de usuário**: Login e logout protegidos por Bearer Token.
+- **Cadastro de usuários**: Permite a criação de novas contas.
+- **Sistema de seguidores**: Busca de usuários para seguir e opção de deixar de seguir.
+- **Feed de postagens**: Exibe as postagens dos usuários seguidos, com a opção de criar novas postagens.
+- **Gerenciamento de comentários**: Permite visualizar, editar e excluir apenas os próprios comentários, com proteção tanto no front-end quanto no back-end.
+
 ## Tecnologias Utilizadas
 
-Front-end : React.js - CSS
-Back-end : Java - Spring Boot
+- **Front-end**: React.js, CSS
+- **Back-end**: Java com Spring Boot
 
 ## Participantes
 
-Front-end desenvolvidos por: Elyn virginio, Pedro Cancella, Gabriela Reissinger Salgado e Tainara Bastos Moco.
-Back-end desenvolvido por: https://github.com/LynBv/API-SERRATEC-GRUPO4 (ajustes a API feitos por: Elyn virginio e Pedro Cancella)
+- **Front-end**: Elyn Virginio, Pedro Cancella, Gabriela Reissinger Salgado e Tainara Bastos Moco
+- **Back-end**: [API-SERRATEC-GRUPO4](https://github.com/LynBv/API-SERRATEC-GRUPO4) (Ajustes na API por Elyn Virginio e Pedro Cancella)
 
 ## Instalação
 
