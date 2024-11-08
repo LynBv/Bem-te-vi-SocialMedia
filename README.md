@@ -1,6 +1,6 @@
 # Bem-te-vi Social Media
 
-Bem-te-vi Social Media é uma aplicação web desenvolvida como parte da Residência em TIC/Software no Serratec. A plataforma permite aos usuários compartilhar postagens, seguir uns aos outros, comentar e interagir com uma interface de rede social moderna e intuitiva.
+Bem-te-vi Social Media é uma aplicação web desenvolvida como parte da Residência em TIC/Software no Serratec. A plataforma permite aos usuários compartilhar postagens, seguir uns aos outros, comentar e fazer login.
 
 ## Funcionalidades
 
